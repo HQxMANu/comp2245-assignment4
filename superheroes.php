@@ -63,6 +63,13 @@ $superheroes = [
   ], 
 ];
 
+if (isset($_GET['json']) && $_GET['json'] === 'true') {
+    header("Content-Type: application/json");
+
+    echo json_encode($superheroes);
+    exit;
+}
+
 ?>
 
 <ul>
@@ -70,3 +77,4 @@ $superheroes = [
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+
